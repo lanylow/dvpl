@@ -1,0 +1,12 @@
+[package]
+name = "dvpl"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bytemuck = { version = "1.23.1", features = [ "derive" ] }
+anyhow = "1.0.98"
+crc32fast = "1.5.0"
+inflate = "0.4.5"
+lz4 = "1.28.1"
+static_assertions = "1.1.0"
