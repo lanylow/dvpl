@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::{ffi::OsStr, path::Path};
 use anyhow::{ensure, Result};
 
 pub mod dvpl;
@@ -9,7 +9,7 @@ mod tests;
 fn process_file(path: &Path) -> Result<()> {
   let input = std::fs::read(path)?;
 
-  if path.extension().unwrap() == "dvpl" {
+  if path.extension().and_then(OsStr::to_str) == Some("dvpl") {
     std::fs::write(path.with_extension(""), dvpl::decompress(&input)?)?;
   }
   else {
